@@ -1,9 +1,9 @@
 # UniCell
-UniCell: Universal Cell Nucleus Classification via Prompt Learning, AAAI 2024
+<div align="center">
+<img src=./resources/intro.jpg width=30%/>
+</div>
 
-The recognition of multi-class cell nuclei can significantly facilitate the process of histopathological diagnosis. Numerous pathological datasets are currently available, but their annotations are inconsistent. Most existing methods require individual training on each dataset to deduce the relevant labels and lack the use of common knowledge across datasets, consequently restricting the quality of recognition. In this paper, we propose a universal cell nucleus classification framework (UniCell), which employs a novel prompt learning mechanism to uniformly predict the corresponding categories of pathological images from different dataset domains. In particular, our framework adopts an end-to-end architecture for nuclei detection and classification, and utilizes flexible prediction heads for adapting various datasets. Moreover, we develop a Dynamic Prompt Module (DPM) that exploits the properties of multiple datasets to enhance features. The DPM first integrates the embeddings of datasets and semantic categories, and then employs the integrated prompts to refine image representations, efficiently harvesting the shared knowledge among the related cell types and data sources. Experimental results demonstrate that the proposed method effectively achieves the state-of-the-art results on four nucleus detection and classification benchmarks.
-
-<img align="right" src=./resources/intro.jpg width=30% />
+<center>UniCell: Universal Cell Nucleus Classification via Prompt Learning, AAAI 2024</center>
 
 ## Overall Framework
 ![](./resources/overall_framework.jpg)
