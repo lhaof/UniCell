@@ -69,3 +69,8 @@ python inference_multihead.py
 ```
 
 We use the entire training set for training, and use the final model for testing after completing 160k iterations.
+
+## Acknowledgement
+We thank the following projects for their valuable contributions to this work.
+- [MMDetection](https://github.com/open-mmlab/mmdetection)
+- [SAHI](https://github.com/obss/sahi)
