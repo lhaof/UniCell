@@ -73,7 +73,7 @@ We use the entire training set for training, and use the final model for testing
 
 ## Training your own datasets
 
-**step 0.** Transform your dataset into the format of `HoverNet CoNSeP` and put it in the `UniCell/dataset/` directory.
+**step 0.** Transfer your dataset into the format of `HoverNet CoNSeP` and put it in the `UniCell/dataset/` directory.
 
 **step 1.** Modify the `dataset_path`, `categories`, `datasets` in `projects/UniCell/tools/prepare_fourdataset_4Dataset_CMOL.py` and run it to generate the dataset.
 
