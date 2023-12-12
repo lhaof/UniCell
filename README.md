@@ -67,3 +67,5 @@ bash ./tools/dist_train.sh projects/UniCell/configs/UniCell_CMOL.py\
 ```
 python inference_multihead.py
 ```
+
+We use the entire training set for training, and use the final model for testing after completing 160k iterations.
