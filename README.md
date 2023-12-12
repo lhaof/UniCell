@@ -73,7 +73,7 @@ We use the entire training set for training, and use the final model for testing
 
 ## Training your own datasets
 
-**step 0.** Transfer your dataset into the format of `HoverNet CoNSeP` and put it in the `UniCell/dataset/` directory.
+**step 0.** Transfer your dataset into the [format](./resources/README.txt) of `HoverNet CoNSeP` and put it in the `UniCell/dataset/` directory.
 
 **step 1.** Modify the `dataset_path`, `categories`, `datasets` in `projects/UniCell/tools/prepare_fourdataset_4Dataset_CMOL.py` and run it to generate the dataset.
 
@@ -81,7 +81,7 @@ Noted that the dataset name in `trans_to_patch` function should be the same as t
 
 **step 2.** Modify the `METAINFO` in `projects/UniCell/configs/nuclei_det_multihead_cmol.py` and make sure that the `num_classes` is equal to the number of categories in your dataset.
 
-(Your can register a new dataset type instead if you are familiar with mmdetection.)
+(You can register a new dataset type instead if you are familiar with mmdetection.)
 
 **step 3.** Modify the `num_classes` in `projects/UniCell/configs/UniCell_CMOL.py`.
 
