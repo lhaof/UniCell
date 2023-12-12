@@ -1,16 +1,16 @@
 # UniCell
-<div align="center">
 <img src=./resources/intro.jpg width=30%/>
-</div>
 
-<div style="text-align: center;">UniCell: Universal Cell Nucleus Classification via Prompt Learning, AAAI 2024</div>
+UniCell: Universal Cell Nucleus Classification via Prompt Learning, AAAI 2024
 
 ## Overall Framework
 ![](./resources/overall_framework.jpg)
 
 ## Requisities
 -`python=3.8`
+
 -`pytorch=1.12.0`
+
 -`torchvision=0.13.0`
 
 ## Installation
