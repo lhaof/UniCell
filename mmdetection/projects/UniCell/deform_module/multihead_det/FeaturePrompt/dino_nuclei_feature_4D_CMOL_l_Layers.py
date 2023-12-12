@@ -51,13 +51,24 @@ class DINO_Nuclei_MultiHead_Feature_4D_CMOL_l_Layers(DeformableDETR_Nuclei):
         self.init_text_prompt(**text_cfg)
 
     def init_text_prompt(self, max_seg_len, context_length, width, layers, vocab_size,
-                         proj_num_layers, n_ctx, n_query_prompt, **kwargs):
+                         proj_num_layers, n_ctx, n_query_prompt,
+                         dataset_names=["CoNSeP", "MoNuSAC", "OCELOT", "Lizard"],
+                         category_names=["Lymphoctes", "Epithelial", "Stromal", "Plasma", "Neutrophils", "Eosinophils",
+                                         "Macrophages",
+                                         "Tumor"],
+                         mask_map={
+                                      0: [3, 4, 5, 6, 7],
+                                      1: [2, 3, 5, 7],
+                                      2: [],
+                                      3: [6, 7]
+                                  },
+                         **kwargs):
         self._tokenizer = Tokenize(SimpleTokenizer(), max_seq_len=max_seg_len)
         self.dataset_mlp = MLP(context_length, width, width, 2)
 
         self.categories_mlp = MLP(context_length, width, width, 2)
 
-        dataset_names = ["CoNSeP", "MoNuSAC", "OCELOT", "Lizard"]
+        dataset_names = dataset_names
         dataset_n_ctx = n_ctx
         ctx_vectors = torch.empty((dataset_n_ctx))
         nn.init.normal_(ctx_vectors, std=0.02)
@@ -70,14 +81,8 @@ class DINO_Nuclei_MultiHead_Feature_4D_CMOL_l_Layers(DeformableDETR_Nuclei):
 
         # categories vector
         # import pdb; pdb.set_trace()
-        category_names = ["Lymphoctes", "Epithelial", "Stromal", "Plasma", "Neutrophils", "Eosinophils", "Macrophages",
-                          "Tumor"]
-        self.mask_map = {
-            0: [3, 4, 5, 6, 7],
-            1: [2, 3, 5, 7],
-            2: [],
-            3: [6, 7]
-        }
+        category_names = category_names
+        self.mask_map = mask_map
         self.num_categories = len(category_names)
         category_n_ctx = n_ctx
         ctx_vectors = torch.empty((category_n_ctx))

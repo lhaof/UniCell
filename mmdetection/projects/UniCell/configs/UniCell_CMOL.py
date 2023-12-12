@@ -103,6 +103,15 @@ model = dict(
         proj_num_layers=2,
         n_ctx=16,
         n_query_prompt=16,
+        dataset_names = ["CoNSeP", "MoNuSAC", "OCELOT", "Lizard"],
+        category_names = ["Lymphoctes", "Epithelial", "Stromal", "Plasma", "Neutrophils", "Eosinophils", "Macrophages",
+                          "Tumor"],
+        mask_map = {
+                    0: [3, 4, 5, 6, 7],
+                    1: [2, 3, 5, 7],
+                    2: [],
+                    3: [6, 7]
+                }
     ),
     # training and testing settings
     train_cfg=dict(
@@ -162,7 +171,7 @@ train_dataloader = dict(
     batch_sampler=dict(type='AspectRatioBatchSampler_SameDataset', drop_last=True),
     dataset=dict(
         filter_cfg=dict(filter_empty_gt=False), pipeline=train_pipeline))
- 
+
 # optimizer
 optim_wrapper = dict(
     type='OptimWrapper',

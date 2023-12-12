@@ -70,6 +70,28 @@ python inference_multihead.py
 
 We use the entire training set for training, and use the final model for testing after completing 160k iterations.
 
+
+## Training your own datasets
+
+**step 0.** Transform your dataset into the format of `HoverNet CoNSeP` and put it in the `UniCell/dataset/` directory.
+
+**step 1.** Modify the `dataset_path`, `categories`, `datasets` in `projects/UniCell/tools/prepare_fourdataset_4Dataset_CMOL.py` and run it to generate the dataset.
+
+Noted that the dataset name in `trans_to_patch` function should be the same as the dataset name in `datasets`. 
+
+**step 2.** Modify the `METAINFO` in `projects/UniCell/configs/nuclei_det_multihead_cmol.py` and make sure that the `num_classes` is equal to the number of categories in your dataset.
+
+(Your can register a new dataset type instead if you are familiar with mmdetection.)
+
+**step 3.** Modify the `num_classes` in `projects/UniCell/configs/UniCell_CMOL.py`.
+
+**step 4.** Modify the `dataset_names` and `category_names` in `projects/UniCell/configs/UniCell_CMOL.py (text_cfg)`.
+
+Modify the `mask_map`, the key corresponds to the dataset, and the value corresponds to the category that requires mask. 
+
+**step 5.** Training. Follow the steps in [Training](#Training).
+
+
 ## Acknowledgement
 We thank the following projects for their valuable contributions to this work.
 - [MMDetection](https://github.com/open-mmlab/mmdetection)
