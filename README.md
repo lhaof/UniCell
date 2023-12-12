@@ -3,7 +3,7 @@
 <img src=./resources/intro.jpg width=30%/>
 </div>
 
-<center>UniCell: Universal Cell Nucleus Classification via Prompt Learning, AAAI 2024</center>
+<div style="text-align: center;">UniCell: Universal Cell Nucleus Classification via Prompt Learning, AAAI 2024</div>
 
 ## Overall Framework
 ![](./resources/overall_framework.jpg)
